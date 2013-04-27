@@ -11,7 +11,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 
 // the post comment class appends a new name to Harabi's ATOM feed title for the main comment feed
-class PostTitle extends Plugin
+class CommentTitle extends Plugin
 {
 	// the following function is needed to work with the comments ATOM feed
 	public function action_atom_get_comments($xml, $params, $handler_vars)
@@ -23,7 +23,7 @@ class PostTitle extends Plugin
 			$xml->title = 'Comments - ' . Utils::htmlspecialchars( Options::get( 'title' ) );
 			
 			// the following changes the description, or subtitle, as the ATOM standard calls it, and makes it reflect the feed
-			$xml->subtitle = ' comments  made on ' . Utils::htmlspecialchars( Options::get( 'title' ) );
+			$xml->subtitle = ' comments made on ' . Utils::htmlspecialchars( Options::get( 'title' ) );
 		}
 	}
 } // end class
